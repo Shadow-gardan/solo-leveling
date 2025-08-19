@@ -1,401 +1,189 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Solo Leveling</title>
   <style>
     *{
       margin: 0;
       padding: 0;
       box-sizing: border-box;
     }
+
     body{
       display: flex;
       align-items: center;
       justify-content: center;
       width: 100%;
+      min-height: 100vh;
       color: #fff;
-      background-image: url("solo.jpg");
-      background-size: cover;
+      background: url("wallpaper.jpg") no-repeat center center/cover;
+      font-family: Arial, sans-serif;
     }
+
     .solo{
+      position: relative;
+      margin-top: 100px;
+      width: 60%;
+      height: 25rem;
       display: flex;
       justify-content: center;
-      margin-top: 170px;
-      position: relative;
-      }
+      align-items: center;
+      overflow: hidden;
+    }
 
-    .Jinwoo{
-      width: 900px;
-      max-width: 1700px;
-      height: 400px;
-      display: flex;
+    .character{
       position: absolute;
-      opacity: 1;
-      z-index: 1;
-      animation: flip 3s ease-in-out 3s alternate both;
-    }
-
-    .Jinwoo .text p{
-      margin: 2px;
-      color: #fff;
-      font-size: 20px;
-    }
-
-    .Jinwoo .name-img .name{
-      text-align: center;
-    }
-
-    .Jinwoo .name-img{
-      right: 10px;
-    }
-
-    .Jinwoo .name-img img{
-      width: 600px;
-      height: 350px;
-    }
-
-    .Hae-In{
-      width: 900px;
-      max-width: 1700px;
-      height: 400px;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
       display: flex;
-      position: absolute;
+      align-items: center;
+      justify-content: space-between;
+      gap: 15px;
       opacity: 0;
-      z-index: 2;
-      animation: out 6s ease-in-out 6s alternate both;
+      animation: fade 36s infinite;
     }
 
-    .Hae-In .text p{
-      margin: 2px;
-      color: #fff;
-      font-size: 20px;
+    .character:nth-child(1){ animation-delay: 0s; }
+    .character:nth-child(2){ animation-delay: 6s; }
+    .character:nth-child(3){ animation-delay: 12s; }
+    .character:nth-child(4){ animation-delay: 18s; }
+    .character:nth-child(5){ animation-delay: 24s; }
+    .character:nth-child(6){ animation-delay: 30s; }
+
+    @keyframes fade {
+      0%   { opacity: 0; }
+      5%   { opacity: 0; }
+      25%  { opacity: 1; }
+      30%  { opacity: 0; }
+      100% { opacity: 0; }
     }
 
-    .Hae-In .name-img .name{
+    .name-img{
+      flex: 1;
       text-align: center;
     }
 
-    .Hae-In .name-img{
-      right: 10px;
+    .name-img img{
+      width: 100%;
+      max-width: 450px;
+      height: auto;
     }
 
-    .Hae-In .name-img img{
-      width: 600px;
-      height: 350px;
-    }
-    .Choi{
-      width: 900px;
-      max-width: 1700px;
-      height: 400px;
-      display: flex;
-      position: absolute;
-      opacity: 0;
-      z-index: 3;
-      animation: in 9s ease-in-out 9s alternate both;
+    .name{
+      margin-top: 10px;
     }
 
-    .Choi .text p{
-      margin: 2px;
-      color: #fff;
-      font-size: 20px;
+    .text{
+      flex: 1;
+      font-size: 18px;
+      font-weight: 600;
+      font-family: 'Times New Roman', Times, serif;
+      font-style: oblique;
+      line-height: 1.5;
+      padding: 5px;
     }
 
-    .Choi .name-img .name{
-      text-align: center;
-    }
-
-    .Choi .name-img{
-      right: 10px;
-    }
-
-    .Choi .name-img img{
-      width: 600px;
-      height: 350px;
-    }
-
-    .Baek{
-      width: 900px;
-      max-width: 1700px;
-      height: 400px;
-      display: flex;
-      position: absolute;
-      opacity: 0;
-      z-index: 4;
-      animation: Baek 14s ease-in-out 14s alternate both;
-    }
-
-    .Baek .text p{
-      margin: 2px;
-      color: #fff;
-      font-size: 20px;
-    }
-
-    .Baek .name-img .name{
-      text-align: center;
-    }
-
-    .Baek .name-img{
-      right: 10px;
-    }
-
-    .Baek .name-img img{
-      width: 600px;
-      height: 350px;
-    }
-    .Yoo{
-      width: 900px;
-      max-width: 1700px;
-      height: 400px;
-      display: flex;
-      position: absolute;
-      opacity: 0;
-      z-index: 5;
-      animation: yoo 20s ease-in-out 20s alternate both;
-    }
-
-    .Yoo .text p{
-      margin: 2px;
-      color: #fff;
-      font-size: 20px;
-    }
-
-    .Yoo .name-img .name{
-      text-align: center;
-    }
-
-    .Yoo .name-img{
-      right: 10px;
-    }
-
-    .Yoo .name-img img{
-      width: 600px;
-      height: 350px;
-    }
-    .Hwang{
-      width: 900px;
-      max-width: 1700px;
-      height: 400px;
-      display: flex;
-      position: absolute;
-      opacity: 0;
-      z-index: 6;
-      animation: hwang 25s ease-in-out 25s alternate both;
-    }
-
-    .Hwang .text p{
-      margin: 2px;
-      color: #fff;
-      font-size: 20px;
-    }
-
-    .Hwang .name-img .name{
-      text-align: center;
-    }
-
-    .Hwang .name-img{
-      right: 10px;
-    }
-
-    .Hwang .name-img img{
-      width: 600px;
-      height: 350px;
-    }
-
-    @keyframes flip {
-      0%{
-        opacity: 1;
+    @media (max-width: 768px){
+      .character{
+        flex-direction: column;
+        text-align: center;
       }
-      100%{
-        opacity: 0;
+      .text{
+        font-size: 16px;
       }
     }
-
-    @keyframes out {
-      0%{
-        opacity: 0;
-      }
-      15%{
-        opacity: 1;
-      }
-      100%{
-        opacity: 0;
-      }
-    }
-    
-    @keyframes in {
-      0%{
-        opacity: 0;
-      }
-      35%{
-        opacity: 1;
-      }
-      100%{
-        opacity: 0;
-      }
-    }
-
-    @keyframes Baek {
-      0%{
-        opacity: 0;
-      }
-      55%{
-        opacity: 1;
-      }
-      100%{
-        opacity: 0;
-      }
-    }
-
-    @keyframes yoo {
-      0%{
-        opacity: 0;
-      }
-      72%{
-        opacity: 1;
-      }
-      100%{
-        opacity: 0;
-      }
-    }
-    @keyframes hwang {
-      0%{
-        opacity: 0;
-      }
-      100%{
-        opacity: 1;
-      }
-    }
-    
-    
-
   </style>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>solo lelving</title>
 </head>
 <body>
   <div class="solo">
-    <div class="Jinwoo">
+    <div class="character">
       <div class="name-img">
-        <div class="img">
-          <img src="https://sgimage.netmarble.com/images/netmarble/sololv/20240528/pnhn1716890389991.png" alt="">
-        </div>
-        <div class="name">
-          <h1>Sung Jinwoo</h1>
-        </div>
+        <img src="https://sgimage.netmarble.com/images/netmarble/sololv/20240528/pnhn1716890389991.png" alt="">
+        <div class="name"><h1>Sung Jinwoo</h1></div>
       </div>
       <div class="text">
         <p>
-          A special hunter who can "level up".
-          After the Double Dungeon Incident,
-          this former E-Rank hunter gained
-          access to a "system" that helped him
-          become more powerful. Though once
-          nicknamed The Weakest Hunter of All
-          Mankind, he now has the ability to
-          turn the dead into his Shadow Soldiers.
+          A special hunter who can "level up". After the Double Dungeon Incident, 
+          this former E-Rank hunter gained access to a "system" that helped him 
+          become more powerful. Though once nicknamed The Weakest Hunter of All 
+          Mankind, he now has the ability to turn the dead into his Shadow Soldiers.
         </p>
       </div>
     </div>
-    <div class="Hae-In">
-      <div class="text">
-      <p>
-        The 9th S-Rank hunter discovered in South Korea
-        and the vice guild master of the Hunters Guild.
-        She wasthe strongest hunter in South Korea before
-        Sung Jinwoo made his debut. Due to herspecial 
-        ability to smell mana, she goes about life with a 
-        handkerchief covering her nose.She is fascinated 
-        to discover that Sung Jinwoo is the only hunter 
-        she's ever encountered with a pleasant scent.
-      </p>
-      </div>
+
+    <div class="character">
       <div class="name-img">
-        <div class="img">
-          <img src="https://sgimage.netmarble.com/images/netmarble/sololv/20230522/qmpo1684747031613.png" alt="">
-        </div>
-        <div class="name">
-          <h1>Cha Hae-In</h1>
-        </div>
-      </div>
-    </div>
-    <div class="Choi">
-      <div class="name-img">
-        <div class="img">
-          <img src="https://sgimage.netmarble.com/images/netmarble/sololv/20230522/n1mc1684748223933.png" alt="">
-        </div>
-        <div class="name">
-          <h1>Choi Jong-In</h1>
-        </div>
+        <img src="https://sgimage.netmarble.com/images/netmarble/sololv/20230522/qmpo1684747031613.png" alt="">
+        <div class="name"><h1>Cha Hae-In</h1></div>
       </div>
       <div class="text">
         <p>
-          The guild master of the Hunters Guild,
-          the best Guild in South Korea.
-          He's been nicknamed "The Ultimate Hunter."
-          This S-Rank Mage-type hunter
-          mainly uses his Fire Magic,
-          which can burn down a building
-          faster than the blink of an eye.
+          The 9th S-Rank hunter discovered in South Korea and the vice guild 
+          master of the Hunters Guild. She was the strongest hunter in South 
+          Korea before Sung Jinwoo made his debut. Due to her special ability 
+          to smell mana, she covers her nose with a handkerchief. She is fascinated 
+          to discover that Sung Jinwoo is the only hunter with a pleasant scent.
         </p>
       </div>
     </div>
-    <div class="Baek">
-      <div class="text">
-      <p>
-        The guild master of the White Tiger Guild and an S-Rank hunter.
-        Originally, he was one of the four founding members of the Fiend Guild.
-        After parting ways with them, he took guild members from his previous Guild to found the White Tigers.
-        He has an ability called "Beast Transformation," which allows him to transform into a frightening Magic Beast.
 
-      </p>
-      </div>
+    <div class="character">
       <div class="name-img">
-        <div class="img">
-          <img src="https://sgimage.netmarble.com/images/netmarble/sololv/20240104/wsm81704353592638.png" alt="">
-        </div>
-        <div class="name">
-          <h1>Baek Yoonho</h1>
-        </div>
-      </div>
-    </div>
-    <div class="Yoo">
-      <div class="name-img">
-        <div class="img">
-          <img src="https://sgimage.netmarble.com/images/netmarble/sololv/20221124/zi001669280423299.png" alt="">
-        </div>
-        <div class="name">
-          <h1>Yoo Jinho</h1>
-        </div>
+        <img src="https://sgimage.netmarble.com/images/netmarble/sololv/20230522/n1mc1684748223933.png" alt="">
+        <div class="name"><h1>Choi Jong-In</h1></div>
       </div>
       <div class="text">
         <p>
-          The second son of Yoo Myunghan,
-          the president of Yoojin Construction.
-          Jinho befriended Sung Jinwoo
-          through a twist of fate and
-          several raids. He is one of the
-          few people that Sung Jinwoo fully trusts.
-
+          The guild master of the Hunters Guild, the best Guild in South Korea. 
+          Nicknamed "The Ultimate Hunter," this S-Rank Mage-type hunter mainly 
+          uses Fire Magic, powerful enough to burn down a building in the blink of an eye.
         </p>
       </div>
     </div>
-    <div class="Hwang">
-      <div class="text">
-      <p>
-        Korea's 8th S-Rank Hunter.
-        He left Korea and joined the Scavenger Guild in the United States.
-        He has a lot of pride in his powers.
-        He is the brother of Hwang Dongsuk, a C-Rank hunter.
 
-      </p>
-      </div>
+    <div class="character">
       <div class="name-img">
-        <div class="img">
-          <img src="https://sgimage.netmarble.com/images/netmarble/sololv/20231205/lyji1701763279994.png" alt="">
-        </div>
-        <div class="name">
-          <h1>Hwang Dongsoo</h1>
-        </div>
+        <img src="https://sgimage.netmarble.com/images/netmarble/sololv/20240104/wsm81704353592638.png" alt="">
+        <div class="name"><h1>Baek Yoonho</h1></div>
+      </div>
+      <div class="text">
+        <p>
+          The guild master of the White Tiger Guild and an S-Rank hunter. 
+          Once a founding member of the Fiend Guild, he left to establish 
+          his own. His ability, "Beast Transformation," allows him to 
+          transform into a terrifying Magic Beast.
+        </p>
+      </div>
+    </div>
+
+    <div class="character">
+      <div class="name-img">
+        <img src="https://sgimage.netmarble.com/images/netmarble/sololv/20221124/zi001669280423299.png" alt="">
+        <div class="name"><h1>Yoo Jinho</h1></div>
+      </div>
+      <div class="text">
+        <p>
+          The second son of Yoo Myunghan, the president of Yoojin Construction. 
+          Jinho befriended Sung Jinwoo through raids and is one of the few 
+          people Jinwoo fully trusts.
+        </p>
+      </div>
+    </div>
+
+    <div class="character">
+      <div class="name-img">
+        <img src="https://sgimage.netmarble.com/images/netmarble/sololv/20231205/lyji1701763279994.png" alt="">
+        <div class="name"><h1>Hwang Dongsoo</h1></div>
+      </div>
+      <div class="text">
+        <p>
+          Korea's 8th S-Rank Hunter who left for the US to join the Scavenger Guild. 
+          Proud of his powers, he is also the brother of C-Rank hunter Hwang Dongsuk.
+        </p>
       </div>
     </div>
   </div>
